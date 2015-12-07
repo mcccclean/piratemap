@@ -1,0 +1,2 @@
+from mapmaker import Map
+
