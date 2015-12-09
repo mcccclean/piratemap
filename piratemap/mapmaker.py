@@ -52,11 +52,13 @@ class Map:
             dy = center[1] - c[1]
             mag = math.sqrt(dx * dx + dy * dy)
             return mag
+        ox = random.random() * 1
+        oy = random.random() * 1
         for y in range(self.size[1]):
             for x in range(self.size[0]):
                 freq = 90.5
                 octaves = 6
-                perlin = pnoise2(x / freq, y / freq, octaves) + 0.5
+                perlin = pnoise2(ox + x / freq, oy + y / freq, octaves) + 0.5
                 mag = dist((x, y)) / 300.0
                 height = perlin * (1 - mag) * 1.0
                 self.heights[x, y] = height
